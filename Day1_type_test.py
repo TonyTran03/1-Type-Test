@@ -3,7 +3,7 @@ from curses import wrapper
 import time
 import requests
 
-def get_random_words(num_words=6):
+def get_random_words(num_words=10):
     response = requests.get(f"https://random-word-api.herokuapp.com/word?number={num_words}")
     if response.status_code == 200:
         return ' '.join(response.json())
