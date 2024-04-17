@@ -29,7 +29,7 @@ def display(stdscr, target_text, current_text, wpm = 0):
         stdscr.addstr(0,i, char,color)
 
 def wpm_test(stdscr):
-    target_text = get_random_words(6)
+    target_text = get_random_words(10)
     current_text = []
 
     start_time = time.time()
@@ -55,14 +55,12 @@ def wpm_test(stdscr):
         if key in ("KEY_BACKSPACE", '\b', "\x7f"):
             if len(current_text)> 0:
                 current_text.pop()
-        
-
         elif len(current_text) < len(target_text) - 1:    
             current_text.append(key)
 
         else:
             break
-
+    
     print(f"You did it!\nYour wpm is: {wpm:.0f}")
 
 #outputting to a new screen 
